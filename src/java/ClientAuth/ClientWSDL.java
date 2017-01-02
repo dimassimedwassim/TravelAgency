@@ -85,16 +85,18 @@ public class ClientWSDL extends HttpServlet {
                 String result = login(log, pwd);
                 out.println("resultat : " + result);
                 if (result.equals("1")) {//administrateur
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("/admin.html");
-                    dispatcher.forward(request, response);
+                    response.sendRedirect("http://sever-benabdallah.rhcloud.com/TravelAgency/admin.html");
+                    //RequestDispatcher dispatcher = request.getRequestDispatcher("/admin.html");
+                    //dispatcher.forward(request, response);
                 } else {
                     if (result.equals("0")) {
-                        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.html");
-                        dispatcher.forward(request, response);
-
+                        response.sendRedirect("http://sever-benabdallah.rhcloud.com/TravelAgency/index.html#/home");
+                        //RequestDispatcher dispatcher = request.getRequestDispatcher("/index.html");
+                        //dispatcher.forward(request, response);
                     } else {
-                        RequestDispatcher dispatcher = request.getRequestDispatcher("/login.html");
-                        dispatcher.forward(request, response);
+                        response.sendRedirect("http://sever-benabdallah.rhcloud.com/TravelAgency/login.html");
+                        //RequestDispatcher dispatcher = request.getRequestDispatcher("/login.html");
+                        //dispatcher.forward(request, response);
                     }
 
                 }

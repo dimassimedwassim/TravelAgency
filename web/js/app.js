@@ -14,6 +14,16 @@ agency.controller('FlightsController',['$scope','$http',function ($scope,$http) 
 agency.controller('HomeController',['$scope',function ($scope) {
     
 }]);
+agency.controller('CarsController',['$scope','$http',function ($scope,$http) {
+    $http.get("http://localhost:8081/cars").success(function (data) {
+        $scope.cars=JSON.parse(data);
+        console.log(data);
+    }).error(function (error) {
+        $scope.cars=error;
+    });
+
+
+}]);
 
 agency.config(['$routeProvider',function($routeProvider) {
     $routeProvider
@@ -27,7 +37,7 @@ agency.config(['$routeProvider',function($routeProvider) {
     })
         .when("/cars", {
             templateUrl : "views/cars.html",
-            //controller: 'CarsController'
+            controller: 'CarsController'
         })
         .otherwise({
             redirectTo : "/home"

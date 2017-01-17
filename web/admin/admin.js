@@ -8,14 +8,15 @@ admin.controller('FlightsController',['$scope','$http',function ($scope,$http) {
 
 
     });
+    
 }]);
 
 admin.controller('UsersController',['$scope','$http',function ($scope,$http) {
-    $http.get('').success(function (data) {
-        $scope.users=data;
-
-
-    });
+    // $http.get('').success(function (data) {
+    //     $scope.users=data;
+    //
+    //
+    // });
     $scope.users="users";
 }]);
 

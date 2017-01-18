@@ -4,7 +4,7 @@
 var agency = angular.module('myApp',['ngRoute']);
 
 agency.controller('FlightsController',['$scope','$http',function ($scope,$http) {
-    $http.get('http://192.168.1.100:8080/RestOffreVol/webresources/flights').success(function (data) {
+    $http.get('http://localhost:8080/RestOffreVol/webresources/flights').success(function (data) {
         $scope.flights=data;
 
 

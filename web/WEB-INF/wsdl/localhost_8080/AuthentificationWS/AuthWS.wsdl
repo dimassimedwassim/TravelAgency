@@ -49,7 +49,7 @@
 </binding>
 <service name="AuthWS">
 <port name="AuthWSPort" binding="tns:AuthWSPortBinding">
-<soap:address location="http://192.168.1.100:8080/AuthentificationWS/AuthWS"/>
+<soap:address location="http://localhost:8080/AuthentificationWS/AuthWS"/>
 </port>
 </service>
 </definitions>

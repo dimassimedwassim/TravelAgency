@@ -1,6 +1,5 @@
 <div class="portlet-body form">
-    <form role="form" method="post" action="http://192.168.1.100:8080/RestOffreVol/webresources/flights">
-        <div class="form-body">
+            <div class="form-body">
             <div class="form-group form-md-line-input form-md-floating-label">
                 <input type="text" class="form-control" id="form_control_1">
                 <label for="form_control_1">Login</label>
@@ -22,8 +21,35 @@
 
         </div>
         <div class="form-actions noborder">
-            <button type="submit" class="btn blue">Submit</button>
+            <button type="submit" id="btnsend" class="btn blue">Submit</button>
             <button type="button" class="btn default">Cancel</button>
         </div>
-    </form>
+        <script>
+        $('#btnsend').click(function () {
+            var login = document.getElementById('form_control_1').value;
+            var password = document.getElementById('form_control_2').value;
+            var admin = document.getElementById('checkbox1').value;
+            
+            
+            var user = '{"admin": "1", "login": "'+ login +'" , "passwd": "'+ password +'" }';
+            alert(user);
+        $.ajax({
+                type: 'POST',
+                contentType: "application/json ;charset=utf-8",
+                url: 'http://localhost:8080/UsersRest/webresources/users',
+                data: user,
+                success: function (data) {
+                    alert('data: ' + data);
+                },
+                error: function (result) {
+                    alert("something wrong");
+                }
+
+            });
+            //alert("lix");
+        })
+
+
+    </script>
+
 </div>

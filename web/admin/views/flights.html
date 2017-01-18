@@ -3,13 +3,16 @@
         <thead>
         <tr>
             <th>
-                #
+                 
             </th>
             <th>
                 Departure
             </th>
             <th>
                 Arrival
+            </th>
+            <th>
+                Duration
             </th>
             <th>
                 Escale
@@ -20,7 +23,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="item in users">
+        <tr ng-repeat="item in flights">
             <td>
                 {{item.id}}
             </td>
@@ -29,6 +32,9 @@
             </td>
             <td>
                 {{item.villearr}}
+            </td>
+            <td>
+                {{item.duree}}
             </td>
             <td>
                 {{item.escale}}

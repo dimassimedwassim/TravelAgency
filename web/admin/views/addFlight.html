@@ -1,41 +1,79 @@
 <div class="portlet-body form">
-    <form role="form" method="post" action="http://192.168.1.100:8080/RestOffreVol/webresources/flights">
-        <div class="form-body">
-            <div class="form-group form-md-line-input form-md-floating-label">
-                <input type="text" class="form-control" id="form_control_1">
-                <label for="form_control_1">Departure</label>
-                <span class="help-block">Departure city .. </span>
-            </div>
-            <div class="form-group form-md-line-input form-md-floating-label">
-                <input type="text" class="form-control" id="form_control_2">
-                <label for="form_control_2">Arrival</label>
-                <span class="help-block">Arrival city..</span>
-            </div>
-            <div class="form-group form-md-line-input form-md-floating-label">
-                <input type="text" class="form-control" id="form_control_3">
-                <label for="form_control_3">Escale</label>
-                <span class="help-block">Escale city..</span>
-            </div>
-            <div class="form-group form-md-line-input form-md-floating-label">
-                <input type="text" class="form-control" id="form_control_4">
-                <label for="form_control_4">Escale</label>
-                <span class="help-block">Escale city..</span>
-            </div>
-            <div class="form-group form-md-line-input form-md-floating-label">
-                <input type="date" class="form-control" id="form_control_5">
-                <label for="form_control_5">Date</label>
-                <span class="help-block">Select date..</span>
-            </div>
-            <div class="form-group form-md-line-input form-md-floating-label">
-                <input type="number" class="form-control" id="form_control_6">
-                <label for="form_control_6">Price</label>
-                <span class="help-block">Trip price ..</span>
-            </div>
+    <!--<form role="form" method="post" action="http://localhost:8080/RestOffreVol/webresources/flights">-->
+    <div class="form-body">
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" class="form-control" id="form_control_1">
+            <label for="form_control_1">Departure</label>
+            <span class="help-block">Departure city .. </span>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" class="form-control" id="form_control_2">
+            <label for="form_control_2">Arrival</label>
+            <span class="help-block">Arrival city..</span>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" class="form-control" id="form_control_3">
+            <label for="form_control_3">Escale</label>
+            <span class="help-block">Escale city..</span>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" class="form-control" id="form_control_4">
+            <label for="form_control_4">Duration</label>
+            <span class="help-block">Trip Duration ..</span>
+        </div>
 
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text"  class="form-control" id="form_control_5">
+            <label for="form_control_5">Date</label>
+            <span class="help-block">Select date..</span>
         </div>
-        <div class="form-actions noborder">
-            <button type="submit" class="btn blue">Submit</button>
-            <button type="button" class="btn default">Cancel</button>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="number" class="form-control" id="form_control_6">
+            <label for="form_control_6">Price</label>
+            <span class="help-block">Trip price ..</span>
         </div>
-    </form>
+               <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" class="form-control" id="form_control_7">
+            <label for="form_control_7">Hour</label>
+            <span class="help-block">Trip hour ..</span>
+        </div>
+
+    </div>
+    <div class="form-actions noborder">
+        <button type="submit" class="btn blue" id="btnsend">Submit</button>
+        <button type="button" class="btn default">Cancel</button>
+    </div>
+    <!--</form>-->
+    <script>
+        $('#btnsend').click(function () {
+            var date = document.getElementById('form_control_5').value;
+            var duree = document.getElementById('form_control_4').value;
+            var arr = document.getElementById('form_control_2').value;
+            var depa = document.getElementById('form_control_1').value;
+            var escale = document.getElementById('form_control_3').value;
+            var prix = document.getElementById('form_control_6').value;
+            var heure = document.getElementById('form_control_7').value;
+            
+//'{"date": "2016-05-03T00:00:00+01:00", "heure": "1970-01-01T10:30:31+01:00",
+            var offre = '{"date": "2017-05-03T00:00:00+01:00", "duree": "'+ duree +'" , "escale": "'+ escale +'" , "heure": "1970-01-01T10:30:31+01:00" , "prix": "'+ prix +'" ,  "villearr": "'+arr+'", "villedep": "'+depa+'"}';
+            alert(offre);
+        $.ajax({
+                type: 'POST',
+                contentType: "application/json ;charset=utf-8",
+                url: 'http://localhost:8080/RestOffreVol/webresources/flights',
+                data: offre,
+                success: function (data) {
+                    alert('data: ' + data);
+                },
+                error: function (result) {
+                    alert("something wrong");
+                }
+
+            });
+            //alert("lix");
+        })
+
+
+    </script>
+
 </div>

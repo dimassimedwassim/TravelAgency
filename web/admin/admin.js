@@ -8,6 +8,7 @@ admin.controller('FlightsController',['$scope','$http',function ($scope,$http) {
 
 
     });
+    
 }]);
 
 admin.controller('UsersController',['$scope','$http',function ($scope,$http) {
